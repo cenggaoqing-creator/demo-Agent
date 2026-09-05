@@ -1,0 +1,10 @@
+{"name":"直接回答","category":"direct_answer","input":"你好","expected_tools":[],"must_contain":""}
+{"name":"天气查询","category":"single_tool","input":"查询上海天气","expected_tools":["weather"],"must_contain":"上海"}
+{"name":"记录支出","category":"state_mutation","input":"记录一笔 35 元交通支出","expected_tools":["expense_tracker"],"must_contain":"支出"}
+{"name":"支出汇总","category":"state_query","input":"汇总本窗口的餐饮支出","expected_tools":["expense_tracker"],"must_contain":"summary"}
+{"name":"数学计算","category":"deterministic_compute","input":"计算 (12 + 8) * 3 / 2","expected_tools":["calculator"],"must_contain":"30"}
+{"name":"资料搜索","category":"mock_search","input":"搜索 Agent Runtime 资料","expected_tools":["search"],"must_contain":"Agent Runtime"}
+{"name":"跨窗口隔离","category":"session_isolation","input":"窗口二查看本窗口支出","expected_tools":["expense_tracker"],"must_not_contain":"窗口一支出"}
+{"name":"复合请求","category":"multi_tool","input":"查上海天气，计算 2 + 3，并搜索 Agent Runtime 资料","expected_tools":["weather","calculator","search"],"must_contain":"上海"}
+{"name":"长期偏好","category":"long_term_memory","input":"记住我优先考虑后端岗位","expected_tools":[],"must_contain":""}
+{"name":"非法工具","category":"error_handling","input":"调用不存在工具","expected_tools":[],"must_contain":""}
